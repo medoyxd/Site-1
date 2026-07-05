@@ -5,11 +5,10 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(135deg, #764ba2);
+  background: linear-gradient(135deg, #667eea, #764ba2);
   overflow: hidden;
   position: relative;
 }
-
 .circle {
   position: absolute;
   border-radius: 50%;
@@ -17,7 +16,6 @@ body {
   animation: float 25s linear infinite;
   z-index: 0;
 }
-
 .circle1 {
   width: 200px;
   height: 200px;
@@ -25,7 +23,6 @@ body {
   top: -50px;
   left: -50px;
 }
-
 .circle2 {
   width: 300px;
   height: 300px;
@@ -33,7 +30,6 @@ body {
   bottom: -100px;
   right: -100px;
 }
-
 @keyframes float {
   0% {
     transform: translateY(0) translateX(0);
@@ -45,7 +41,6 @@ body {
     transform: translateY(0) translateX(0);
   }
 }
-
 .login-form {
   position: relative;
   width: 400px;
@@ -58,16 +53,13 @@ body {
   z-index: 1;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .login-form:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
 }
-
 .login-form:focus-within {
   transform: scale(1.05);
 }
-
 .login-form h3 {
   font-size: 28px;
   color: white;
@@ -75,15 +67,13 @@ body {
   text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black,
     2px 2px 0 black;
 }
-
 fieldset {
   border: none;
   padding: 20px;
-  background: linear-gradient(135deg, #764ba285);
+  background: linear-gradient(135deg, #667eea85, #764ba285);
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
-
 input {
   display: block;
   width: 90%;
@@ -94,13 +84,11 @@ input {
   font-size: 16px;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
-
 input:focus {
   transform: translateY(-5px);
   outline: none;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
-
 button {
   width: 100%;
   padding: 12px;
@@ -114,23 +102,19 @@ button {
   cursor: pointer;
   transition: transform 0.3s ease, background 0.3s ease;
 }
-
 button:hover {
   transform: translateY(-3px);
   background: #5a67d8;
 }
-
 p {
   margin-top: 15px;
   font-size: 14px;
   color: white;
 }
-
 p a {
   color: #ff0000;
   text-decoration: none;
 }
-
 p a:hover {
   text-decoration: none;
 }
