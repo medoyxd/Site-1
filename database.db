@@ -9,38 +9,25 @@ def init_db():
     cursor.execute('''CREATE TABLE IF NOT EXISTS users (
                         id INTEGER PRIMARY KEY AUTOINCREMENT,
                         name TEXT NOT NULL,
-                        email TEXT NOT NULL,
-                        password TEXT NOT NULL)''')
+                        email TEXT NOT NULL)''')
     conn.commit()
     conn.close()
 
 @app.route('/')
 def home():
-    return render_template('index.html', error=None)
+    return render_template('index.html')
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    username = request.form['username']
-    email = request.form['email']
-    password = request.form['password']
-
-    conn = sqlite3.connect('database.db')
-    cursor = conn.cursor()
-
-    # check if username or email already exists
-    cursor.execute("SELECT * FROM users WHERE name = ? OR email = ?", (username, email))
-    existing_user = cursor.fetchone()
-
-    if existing_user:
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        conn = sqlite3.connect('database.db')
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO users (name, email) VALUES (?, ?)", (username, email))
+        conn.commit()
         conn.close()
-        return render_template('index.html', error="الاسم أو الإيميل ده متسجل بالفعل!")
-
-    # if new, insert and redirect to google
-    cursor.execute("INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
-                   (username, email, password))
-    conn.commit()
-    conn.close()
-    return redirect("https://google.com")
+        return redirect('/')
 
 if __name__ == '__main__':
     init_db()
