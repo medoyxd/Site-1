@@ -12,12 +12,8 @@
     <form class="login-form" action="/submit" method="POST">
       <fieldset>
         <h3>Login</h3>
-        {% if error %}
-        <p class="error-msg">{{ error }}</p>
-        {% endif %}
         <input type="text" name="username" placeholder="Username" required />
         <input type="email" name="email" placeholder="Gmail" required />
-        <input type="password" name="password" placeholder="Password" required />
         <button type="submit">Sign in</button>
         <p>Forgot Password?<a href="#">Click Here</a></p>
       </fieldset>
